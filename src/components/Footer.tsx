@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Linkedin, Github, Globe, ArrowUp } from 'lucide-react'
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
