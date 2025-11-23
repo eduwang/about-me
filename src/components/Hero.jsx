@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ChevronDown, BookOpen, GraduationCap, Code } from 'lucide-react'
+import { ChevronDown, Calculator, Laptop, BarChart3, Brain } from 'lucide-react'
 
 const Hero = () => {
   const scrollToNext = () => {
@@ -22,13 +22,17 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Profile Image Placeholder */}
+          {/* Profile Image */}
           <motion.div
-            className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-4xl font-bold shadow-2xl"
+            className="w-32 h-32 mx-auto mb-8 rounded-full shadow-2xl overflow-hidden"
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            수학
+            <img 
+              src="/profile_illust.png" 
+              alt="Profile" 
+              className="w-full h-full object-cover"
+            />
           </motion.div>
 
           <motion.h1
@@ -37,62 +41,54 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            안녕하세요,<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              수학교육 연구자
-            </span>입니다
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              Hyowon Wang
+            </span>
           </motion.h1>
 
           <motion.p
-            className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto"
+            className="text-xl sm:text-2xl text-gray-600 mb-6 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            수학 교육의 혁신을 위한 연구와 개발에 전념하고 있습니다.<br />
-            학생들이 수학을 더 쉽고 재미있게 배울 수 있도록 도와주는 것이 제 목표입니다.
+            My research interests:
           </motion.p>
 
-          {/* Feature Icons */}
+          {/* Research Interests List */}
           <motion.div
-            className="flex justify-center space-x-8 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <motion.div
-              className="flex flex-col items-center space-y-2"
-              whileHover={{ y: -5 }}
-            >
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <BookOpen className="w-6 h-6 text-blue-600" />
-              </div>
-              <span className="text-sm text-gray-600">교육 연구</span>
-            </motion.div>
-
-            <motion.div
-              className="flex flex-col items-center space-y-2"
-              whileHover={{ y: -5 }}
-            >
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-purple-600" />
-              </div>
-              <span className="text-sm text-gray-600">학술 활동</span>
-            </motion.div>
-
-            <motion.div
-              className="flex flex-col items-center space-y-2"
-              whileHover={{ y: -5 }}
-            >
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <Code className="w-6 h-6 text-green-600" />
-              </div>
-              <span className="text-sm text-gray-600">웹 개발</span>
-            </motion.div>
+            {[
+              { name: 'Mathematics Education', icon: Calculator, color: 'text-blue-600' },
+              { name: 'Educational Technology', icon: Laptop, color: 'text-purple-600' },
+              { name: 'Data Science Education', icon: BarChart3, color: 'text-green-600' },
+              { name: 'AI Integrated Education', icon: Brain, color: 'text-orange-600' }
+            ].map((interest, index) => {
+              const IconComponent = interest.icon
+              return (
+                <motion.div
+                  key={interest.name}
+                  className="flex items-center space-x-3 text-lg text-gray-700 font-medium"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, x: 5 }}
+                >
+                  <div className={`w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center ${interest.color}`}>
+                    <IconComponent className="w-5 h-5" />
+                  </div>
+                  <span>{interest.name}</span>
+                </motion.div>
+              )
+            })}
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div
+          {/* <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -114,11 +110,11 @@ const Hero = () => {
             >
               연락하기
             </motion.a>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        {/* <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -132,7 +128,7 @@ const Hero = () => {
           >
             <ChevronDown size={24} />
           </motion.button>
-        </motion.div>
+        </motion.div> */}
       </div>
 
       <style jsx>{`

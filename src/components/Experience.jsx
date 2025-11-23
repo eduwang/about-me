@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Briefcase, Users, BookOpen, Code } from 'lucide-react'
+import { School, Briefcase } from 'lucide-react'
 
 const Experience = () => {
   const [ref, inView] = useInView({
@@ -11,56 +11,59 @@ const Experience = () => {
 
   const experiences = [
     {
-      position: '수학교육 연구원',
-      company: '한국교육개발원',
-      period: '2022 - 현재',
-      description: '수학교육 정책 연구 및 교육과정 개발',
+      position: 'Lecturer',
+      company: 'Sookmyung Women`s University',
+      period: 'Mar. 2025 - Present',
+      description: 'Teaching Mathematics Education Courses and AI Integrated Education Courses',
       achievements: [
-        '수학교육과정 개정 연구 참여',
-        '디지털 교과서 개발 프로젝트 주도',
-        '교사 연수 프로그램 기획 및 운영'
+        <span key="ai-course">Teaching Models of Mathematics<br />수학교육론</span>,
+        <span key="ai-course">Teaching MMaterials and Teaching Techniques of Mathematcs<br />수학 교재연구 및 지도법</span>,
+        <span key="ai-course">Logic and Logical Writing in Mathematics<br />논리 및 논술(수학)</span>,
+        <span key="ai-course">Artificial Intelligence and Data Science<br />인공지능과 데이터 사이언스 </span>,
+        <span key="ai-course">Trends and Issues of AI Convergence Education<br />AI융합교육 동향과 이슈</span>,
       ],
-      icon: <BookOpen className="w-5 h-5" />
+      icon: <School className="w-5 h-5" />
     },
     {
-      position: '수학교사',
-      company: '서울시교육청',
-      period: '2016 - 2022',
-      description: '중학교 수학 교과 지도 및 교육 연구',
+      position: 'Lecturer',
+      company: 'Seoul National University',
+      period: 'Sep. 2025 - Present',
+      description: 'Teaching AI Integrated Education Courses',
       achievements: [
-        '수학 학습 부진 학생 지도 프로그램 개발',
-        'ICT 활용 수학 수업 모델 연구',
-        '교내 수학 동아리 지도'
+        <span key="ai-course">Basic Programming for Integrated Education<br />융합교육을 위한 기초 프로그래밍</span>,
       ],
-      icon: <Users className="w-5 h-5" />
+      icon: <School className="w-5 h-5" />
     },
     {
-      position: '교육 연구 보조원',
-      company: '서울대학교 수학교육과',
-      period: '2018 - 2022',
-      description: '박사 과정 중 교육 연구 및 강의 보조',
+      position: 'Lecturer',
+      company: 'Cheongju National University of Education',
+      period: 'Sep. 2025 - Present',
+      description: 'Teaching General Education Course',
       achievements: [
-        '수학교육 연구 프로젝트 참여',
-        '대학원 강의 보조 및 학생 지도',
-        '학술 논문 작성 및 발표'
+        <span key="ai-course">Integrated Perspectives on Modern Mathematics<br />현대수학의 융합적 이해</span>,
       ],
-      icon: <Code className="w-5 h-5" />
-    }
-  ]
-
-  const skills = [
-    {
-      category: '교육 연구',
-      items: ['교육과정 개발', '교수법 연구', '학습 평가', '교육 통계']
+      icon: <School className="w-5 h-5" />
     },
     {
-      category: '기술 개발',
-      items: ['웹 애플리케이션', '교육용 소프트웨어', '데이터 시각화', 'API 개발']
+      position: 'Lecturer',
+      company: 'Korea University',
+      period: 'Mar. 2025 - Aug. 2025',
+      description: 'Teaching Mathematics Education Course',
+      achievements: [
+        <span key="ai-course">Mathematics Teaching Methods for Classroom Practice<br />현장교육을 위한 수학교수론</span>,
+      ],
+      icon: <School className="w-5 h-5" />
     },
     {
-      category: '프로젝트 관리',
-      items: ['연구 프로젝트 기획', '팀 리더십', '예산 관리', '성과 평가']
-    }
+      position: 'Administrative Assistant',
+      company: 'Korea Society of Educational Studies in Mathematics',
+      period: 'Mar. 2018 - Feb. 2022',
+      description: 'Administrative Assistant of KSESM',
+      achievements: [
+        <span key="ai-course">Handled administrative tasks for the academic society<br />학회 사무간사 업무 수행</span>,
+      ],
+      icon: <Briefcase className="w-5 h-5" />
+    },
   ]
 
   return (
@@ -73,16 +76,12 @@ const Experience = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">경력 및 경험</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            수학교육 현장에서의 실무 경험과 연구 활동을 통해 
-            이론과 실천을 연결하는 전문성을 쌓아왔습니다.
-          </p>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Professional Experience</h2>
+
         </motion.div>
 
         {/* Experience Cards */}
         <div className="mb-20">
-          <h3 className="text-2xl font-semibold text-gray-900 text-center mb-12">주요 경력</h3>
           <div className="grid lg:grid-cols-3 gap-8">
             {experiences.map((exp, index) => (
               <motion.div
@@ -120,69 +119,6 @@ const Experience = () => {
             ))}
           </div>
         </div>
-
-        {/* Skills Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <h3 className="text-2xl font-semibold text-gray-900 text-center mb-12">전문 역량</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.category}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
-                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                whileHover={{ y: -5 }}
-              >
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Briefcase className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <h4 className="text-xl font-semibold text-gray-900">{skill.category}</h4>
-                </div>
-                
-                <div className="space-y-2">
-                  {skill.items.map((item, idx) => (
-                    <div key={idx} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-gray-600">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Career Highlights */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-20"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
-            <h3 className="text-3xl font-bold mb-4">경력 하이라이트</h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <div className="text-4xl font-bold mb-2">6+</div>
-                <div className="text-blue-100">년간 교육 현장 경험</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold mb-2">20+</div>
-                <div className="text-blue-100">개 연구 프로젝트 참여</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold mb-2">100+</div>
-                <div className="text-blue-100">명의 학생 지도</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

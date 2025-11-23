@@ -49,19 +49,13 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: '이메일',
-      value: 'researcher@math.edu',
-      link: 'mailto:researcher@math.edu'
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: '전화번호',
-      value: '+82-10-1234-5678',
-      link: 'tel:+82-10-1234-5678'
+      value: 'eduwang1010.dev@gmail.com',
+      link: 'mailto:eduwang1010.dev@gmail.com'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: '위치',
-      value: '서울특별시 강남구',
+      value: '서울특별시',
       link: '#'
     }
   ]
@@ -76,7 +70,7 @@ const Contact = () => {
     {
       icon: <Github className="w-5 h-5" />,
       name: 'GitHub',
-      url: 'https://github.com/math-education-researcher',
+      url: 'https://github.com/eduwang',
       color: 'bg-gray-800 hover:bg-gray-900'
     },
     {

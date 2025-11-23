@@ -15,12 +15,14 @@ const Header = () => {
   }, [])
 
   const navItems = [
-    { name: '소개', href: '#about' },
-    { name: '학력', href: '#education' },
-    { name: '경력', href: '#experience' },
-    { name: '연구', href: '#research' },
-    { name: '프로젝트', href: '#projects' },
-    { name: '연락처', href: '#contact' }
+    { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Teaching', href: '#teaching' },
+    { name: 'Publications', href: '#research' },
+    { name: 'Research Projects', href: '#projects' },
+    { name: 'Applications', href: '#applications' },
+    { name: 'Contact', href: '#contact' }
   ]
 
   return (
@@ -38,7 +40,7 @@ const Header = () => {
             className="text-xl font-bold text-gray-900"
             whileHover={{ scale: 1.05 }}
           >
-            수학교육 연구자
+            Hyowon Wang's Page
           </motion.div>
 
           {/* Desktop Navigation */}

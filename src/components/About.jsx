@@ -10,11 +10,11 @@ const About = () => {
   })
 
   const skills = [
-    { name: '수학교육학', level: 95, color: 'from-blue-500 to-blue-600' },
-    { name: '교육연구방법론', level: 90, color: 'from-purple-500 to-purple-600' },
-    { name: '통계분석', level: 85, color: 'from-green-500 to-green-600' },
-    { name: 'React/TypeScript', level: 80, color: 'from-orange-500 to-orange-600' },
-    { name: 'Python/데이터분석', level: 75, color: 'from-red-500 to-red-600' }
+    { name: 'Mathematics Education', level: 95, color: 'from-blue-500 to-blue-600' },
+    { name: 'Educational Technology', level: 90, color: 'from-purple-500 to-purple-600' },
+    { name: 'Data Science Education', level: 85, color: 'from-green-500 to-green-600' },
+    { name: 'Web-Application Development for Teachers', level: 80, color: 'from-orange-500 to-orange-600' },
+    { name: 'AI Integrated Education', level: 75, color: 'from-red-500 to-red-600' }
   ]
 
   const values = [
@@ -47,9 +47,7 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            수학교육 연구자로서 학생들이 수학을 더 쉽고 재미있게 배울 수 있도록 
-            다양한 교육 도구와 방법을 연구하고 개발하고 있습니다.
-          </p>
+          As a mathematics education researcher, I am interested in data science education in school mathematics and technology-enhanced learning environments.          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -65,21 +63,24 @@ const About = () => {
                   <User className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">개인 소개</h3>
-                  <p className="text-gray-600">수학교육 전문가이자 교육 기술 개발자</p>
+                  <h3 className="text-xl font-semibold text-gray-900">About Me</h3>
+                  <p className="text-gray-600">Mathematics Education Researcher & EdTech Developer</p>
                 </div>
               </div>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                저는 수학교육의 혁신을 위해 끊임없이 연구하고 개발하는 연구자입니다. 
-                전통적인 수학 교육 방법을 넘어서, 디지털 기술을 활용한 
-                새로운 교육 방식을 탐구하고 있습니다.
+              I am a researcher dedicated to advancing mathematics education through 
+              innovative approaches and the integration of new technologies. 
+              My work explores ways to enhance learning beyond traditional mathematics instruction.
               </p>
               
               <p className="text-lg text-gray-700 leading-relaxed">
-                특히 웹 기반의 인터랙티브 수학 학습 도구 개발에 관심이 많으며, 
-                학생들이 수학 개념을 시각적으로 이해하고 
-                실습할 수 있는 환경을 만드는 것을 목표로 하고 있습니다.
+              I am particularly interested in developing web-based mathematics 
+              learning tools and augmented reality environments that can be used 
+              directly in classroom settings. My work aims to create learning experiences 
+              that help students visually explore mathematical concepts and engage in interactive 
+              practice.
+              In addition, I am exploring effective ways to integrate data science education into school mathematics to enrich students’ problem-solving and analytical thinking.
               </p>
             </div>
           </motion.div>
@@ -91,7 +92,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6"
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">전문 분야</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-6">Professional Skills</h3>
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
@@ -118,7 +119,7 @@ const About = () => {
         </div>
 
         {/* Values Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -144,7 +145,7 @@ const About = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   )
