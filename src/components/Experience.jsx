@@ -17,7 +17,7 @@ const Experience = () => {
       description: 'Teaching Mathematics Education Courses and AI Integrated Education Courses',
       achievements: [
         <span key="ai-course">Teaching Models of Mathematics<br />수학교육론</span>,
-        <span key="ai-course">Teaching MMaterials and Teaching Techniques of Mathematcs<br />수학 교재연구 및 지도법</span>,
+        <span key="ai-course">Teaching Materials and Teaching Techniques of Mathematcs<br />수학 교재연구 및 지도법</span>,
         <span key="ai-course">Logic and Logical Writing in Mathematics<br />논리 및 논술(수학)</span>,
         <span key="ai-course">Artificial Intelligence and Data Science<br />인공지능과 데이터 사이언스 </span>,
         <span key="ai-course">Trends and Issues of AI Convergence Education<br />AI융합교육 동향과 이슈</span>,
