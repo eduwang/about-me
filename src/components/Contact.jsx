@@ -91,11 +91,11 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">연락하기</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact</h2>
+          {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             수학교육 연구나 협업에 관심이 있으시다면 언제든 연락해 주세요. 
             함께 수학교육의 미래를 만들어가고 싶습니다.
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
