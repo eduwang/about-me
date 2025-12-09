@@ -8,7 +8,6 @@ import Experience from './components/Experience.jsx'
 import Teaching from './components/Teaching.jsx'
 import Research from './components/Research.jsx'
 import Projects from './components/Projects.jsx'
-import Applications from './components/Applications.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -34,7 +33,6 @@ function App() {
         <Teaching />
         <Research />
         <Projects />
-        <Applications />
         <Contact />
       </main>
       <Footer />

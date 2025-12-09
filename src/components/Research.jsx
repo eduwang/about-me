@@ -172,50 +172,85 @@ const Research = () => {
 
   const conferences = [
     {
-      title: '2023 한국수학교육학회 정기학술대회',
-      event: '한국수학교육학회',
-      date: '2023.11',
-      type: '구두발표',
-      topic: '수학 학습에서 AI 활용 방안'
+      title: '통계적 문제 해결 관점에서 본 고등학생의 사회 관계망 분석 프로젝트 수행 과정 탐구',
+      event: '제63회 수학교육학 연구논문 발표대회',
+      date: '2025.12',
+      type: 'Oral Presentation',
+      hostedBy: '대한수학교육학회(Korean Society of Educational Studies in Mathematics)',
+      author: '왕효원, 탁병주, 유연주'
     },
     {
-      title: '2022 국제수학교육학회(ICME)',
-      event: 'ICME-15',
-      date: '2022.07',
-      type: '포스터발표',
-      topic: '디지털 교과서 활용 효과성'
+      title: '초등학교 수학과 데이터 과학 교육의 연계 가능성 탐색: 2022 개정 교육과정을 중심으로',
+      event: '2025 International Conference of the Korean Society of Mathematical Education',
+      date: '2025.11',
+      type: 'Oral Presentation',
+      hostedBy: '한국수학교육학회(Korean Society of Mathematical Education)',
+      author: '왕효원, 탁병주'
     },
     {
-      title: '2021 수학교육 연구방법론 워크샵',
-      event: '한국수학교육학회',
-      date: '2021.08',
-      type: '워크샵',
-      topic: '교육 연구 방법론'
+      title: "The Impact of Pre-Service Mathematics Teachers' Experience Progressing from Web Application Development to Lesson Design on TPACK",
+      event: '2025 KMS Annual Meeting',
+      date: '2025.10',
+      type: 'Oral Presentation',
+      hostedBy: '대한수학회(Korean Mathematical Society)',
+      author: 'Hyowon WANG & Jiyoung KIM'
+    },
+    {
+      title: 'Designing Augmented Paper-Based Mathematics Learning Environment From an Embodied Cognition Perspective: Application to the Translation of Quadratic Functions',
+      event: 'EARCOME 9',
+      date: '2025.07',
+      type: 'Oral Presentation',
+      hostedBy: 'KSME & KSESM',
+      author: 'Hyowon WANG & Yun Joo YOO'
+    },
+    {
+      title: '체화된 인지 기반 증강현실 수학 학습지 설계 및 적용: 구의 부피 개념 탐구',
+      event: '제62회 수학교육학 연구논문 발표대회',
+      date: '2024.12',
+      type: 'Oral Presentation',
+      hostedBy: '대한수학교육학회(Korean Society of Educational Studies in Mathematics)',
+      author: '왕효원, 유연주'
+    },
+    {
+      title: '가상현실 협력학습 기반 융합 교육 콘텐츠 개발',
+      event: '2023 Conference of Joint Societies for Mathematics Education: KSESM, KSME',
+      date: '2023.12',
+      type: 'Oral Presentation',
+      hostedBy: 'KSESM & KSME',
+      author: '유연주, 김민정, 노하은, 왕효원, 조상연'
+    },
+    {
+      title: '체화된 설계 기반 증강현실 활용 수학 학습 환경 설계 방안 논의',
+      event: '2023 Conference of Joint Societies for Mathematics Education: KSESM, KSME',
+      date: '2023.12',
+      type: 'Oral Presentation',
+      hostedBy: 'KSESM & KSME',
+      author: '왕효원, 유연주'
     }
   ]
 
   const projects = [
     {
-      title: '수학교육 디지털 전환 연구',
-      funding: '한국연구재단',
-      period: '2023-2025',
-      role: '연구책임자',
-      status: '진행중'
-    },
-    {
-      title: 'AI 기반 수학 학습 도구 개발',
-      funding: '교육부',
-      period: '2022-2024',
-      role: '공동연구원',
-      status: '완료'
-    },
-    {
-      title: '수학 학습 부진 학생 지도 프로그램',
+      title: '중등 수학·과학 영재 표준 교육과정 개발 연구',
       funding: '서울시교육청',
-      period: '2021-2022',
-      role: '연구원',
-      status: '완료'
-    }
+      period: '2025.04-2025.11.',
+      role: '공동연구원',
+      status: 'Ongoing'
+    },
+    {
+      title: '디지털 기반 학생 맞춤교육 연구학교 운영',
+      funding: '서울시교육청',
+      period: '2025',
+      role: '공동연구원',
+      status: 'Finished'
+    },
+    {
+      title: '난산증 실태 조사',
+      funding: '공주교육대학교',
+      period: '2025',
+      role: '공동연구원',
+      status: 'Ongoing'
+    },
   ]
 
   return (
@@ -359,9 +394,14 @@ const Research = () => {
                 </div>
                 
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">{conf.title}</h4>
+                {conf.author && (
+                  <p className="text-sm text-gray-600 mb-2">{conf.author}</p>
+                )}
                 <p className="text-blue-600 font-medium mb-2">{conf.event}</p>
                 <p className="text-gray-600 text-sm mb-3">{conf.date}</p>
-                <p className="text-gray-700">{conf.topic}</p>
+                {conf.hostedBy && (
+                  <p className="text-gray-700">{conf.hostedBy}</p>
+                )}
               </motion.div>
             ))}
           </div>
@@ -382,8 +422,10 @@ const Research = () => {
               >
                 <div className="flex items-center justify-start mb-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    project.status === '진행중' 
+                    project.status === 'Ongoing' 
                       ? 'bg-green-100 text-green-800' 
+                      : project.status === 'Finished'
+                      ? 'bg-red-100 text-red-800'
                       : 'bg-blue-100 text-blue-800'
                   }`}>
                     {project.status}
