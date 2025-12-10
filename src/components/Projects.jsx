@@ -25,67 +25,118 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: '수학 개념 시각화 도구',
-      description: '기하학적 개념을 인터랙티브하게 학습할 수 있는 웹 애플리케이션',
-      category: ['educational', 'interactive'],
-      technologies: ['React', 'TypeScript', 'Three.js', 'Framer Motion'],
-      features: ['3D 기하학 모델링', '실시간 조작', '학습 진도 추적', '교사 대시보드'],
-      demoUrl: 'https://math-visualization.demo',
-      githubUrl: 'https://github.com/username/math-viz',
+      title: 'Exploring the Volume of Sphere',
+      description: 'How can we calculate the volume of a sphere? A web-based set of interactive experiments that use 3D rendering, physics, and AR image tracking to build intuition for sphere volume through filling and splitting visualizations.',
+      category: ['educational', 'augmentedreality', '3dvis'],
+      technologies: [
+        "Vanilla JavaScript",
+        "Three.js",
+        "Cannon-es",
+        "MindAR (image-tracking AR)",
+        "GLTF assets"
+      ],      
+      features: [
+        "Real-time physics simulations showing the volume relationship between a sphere and a cylinder",
+        "AR image-tracking experience to slice and reassemble a sphere with interactive controls",
+        "Sphere splitting visual demos comparing cross-sections and volumes",
+        "Supplementary learning materials and reference assets (3D models, markers, lectures/examples)",
+        "Runs as static files; works with a simple local web server without a build step"
+      ],      
+      demoUrl: 'https://eduwang.github.io/exploring-volume-of-sphere/',
+      githubUrl: 'https://github.com/eduwang/exploring-volume-of-sphere',
       status: 'Active'
     },
     {
       id: 2,
+      title: "Visualizing Translations of Quadratic Functions in AR",
+      description: "A WebXR-style demo that overlays a quadratic function graph on live camera video, letting users tweak coefficients and observe vertical shifts in real time with Three.js rendering.",
+      category: ['educational', 'augmentedreality'],
+      technologies: [
+        "Vanilla JavaScript",
+        "Three.js",
+        "WebXR-style camera overlay"
+      ],      
+      features: [
+        "Render y = ax^2 + bx + c or vertex form graphs over live camera feed",
+        "Real-time updates as users adjust coefficients and vertical shift slider",
+        "Toggleable dashed grid and axes for clearer visualization",
+        "Touch drag to move the camera view and reset to defaults with one tap",
+        "Runs as static files; open index.html or serve with a simple local server"
+      ],      
+      demoUrl: 'https://eduwang.github.io/graph-of-quadratic-function/',
+      githubUrl: 'https://github.com/eduwang/graph-of-quadratic-function',
+      status: 'Active'
+    },
+    {
+      id: 3,
       title: 'Reinforcement Learning Sample for AI Integrated Education',
-      description: 'Sample of Reinforcement Learning. You can try Cart Pole, Lunar Lander, and Maze Solver.',
+      description: 'Sample of reinforcement learning. You can try Cart Pole, Lunar Lander, and Maze Solver.',
       category: ['educational', 'aiintegrated'],
       technologies: ['Vite', 'Vanilla JavaScript', 'Canvas API'],
       features: [
-        '실시간 강화학습 시각화',
-        '3가지 학습 환경 (CartPole, 미로, Lunar Lander)',
-        'DQN & Q-Learning 알고리즘',
-        '하이퍼파라미터 실시간 조정',
-        '학습 진행 차트 및 통계'
+        'Real-time Reinforcement Learning Visualization',
+        '3 Learning Environments (CartPole, Maze, Lunar Lander)',
+        'DQN & Q-Learning Algorithms',
+        'Real-time Hyperparameter Adjustment',
+        'Training Progress Charts & Statistics'
       ],
       demoUrl: 'https://reinforcement-learning-sample.netlify.app/',
       githubUrl: 'https://github.com/eduwang/reinforcement-learning',
       status: 'Active'
     },
     {
-      id: 3,
-      title: '수학 퀴즈 게임',
-      description: '게임화를 통해 수학 학습을 재미있게 만드는 모바일 친화적 웹앱',
-      category: ['interactive', 'educational'],
-      technologies: ['React', 'PWA', 'Canvas API', 'IndexedDB'],
-      features: ['다양한 퀴즈 유형', '진행도 저장', '리더보드', '오프라인 지원'],
-      demoUrl: 'https://math-quiz.demo',
-      githubUrl: 'https://github.com/username/math-quiz',
+      id: 4,
+      title: 'Cryptology Learning Platform',
+      description: 'An interactive web application for learning classical and modern cryptography through hands-on experience with 8 different cipher implementations',
+      category: ['educational'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'BigInt'],
+      features: [
+        '8 cipher implementations (Scytale, Nihilist, Caesar, Vigenère, Affine, Enigma, Sieve of Eratosthenes, RSA)',
+        'Real-time encryption and decryption',
+        'Interactive visualizations',
+        'Bidirectional cipher operations',
+        'Input validation with user feedback',
+        'Responsive design for all devices',
+        'Educational-focused UI/UX',
+        'Step-by-step process logging',
+        'Multiple encryption modes (text/number)',
+        'Prime number factorization'
+      ],
+      demoUrl: 'https://explore-classic-cryptography-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/cryptology-sample',
       status: 'Active'
     },
     {
-      id: 4,
-      title: '수학 문제 생성기',
-      description: 'AI를 활용하여 개인 맞춤형 수학 문제를 자동으로 생성하는 도구',
-      category: ['educational'],
-      technologies: ['React', 'Python', 'TensorFlow', 'FastAPI'],
-      features: ['난이도별 문제 생성', '개인 맞춤형', '다양한 문제 유형', '해답 및 해설'],
-      demoUrl: 'https://math-generator.demo',
-      githubUrl: 'https://github.com/username/math-generator',
-      status: 'Private'
-    },
-    {
       id: 5,
-      title: '수학 학습 커뮤니티',
-      description: '학생들이 수학 문제를 공유하고 토론할 수 있는 온라인 플랫폼',
-      category: ['interactive', 'educational'],
-      technologies: ['React', 'Firebase', 'Real-time DB', 'Authentication'],
-      features: ['실시간 채팅', '문제 공유', '해답 투표', '학습 그룹'],
-      demoUrl: 'https://math-community.demo',
-      githubUrl: 'https://github.com/username/math-community',
+      title: 'Calculus Visualization - 3D Interactive Learning Tool',
+      description: 'A web application that visualizes fundamental calculus concepts including Cavalieri\'s principle and Archimedes\' equilibrium method through interactive 3D graphics to enhance mathematical understanding',
+      category: ['educational', '3dvis'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Three.js', 'lil-gui'],
+      features: [
+        'Cavalieri\'s method of indivisibles visualization',
+        'Sphere volume calculation using Cavalieri\'s principle',
+        'Archimedes\' equilibrium method demonstration',
+        'Interactive 3D controls and camera manipulation',
+        'Animation controls with frame-by-frame playback',
+        'Mathematical formula rendering with MathJax'
+      ],
+      demoUrl: 'https://calculus-sgj-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/calculus-sgj',
       status: 'Active'
     },
     {
       id: 6,
+      title: 'Yacht Dice Game',
+      description: 'An interactive dice game featuring real-time 3D physics simulation. Play the classic Yacht (Yahtzee) game with immersive 3D dice rolling powered by Three.js and Cannon.js physics engine.',
+      category: ['educational', '3dvis'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Three.js', 'Cannon.js', 'GSAP'],
+      features: ['3D Physics Simulation', 'Multiplayer Support', 'Real-time Score Calculation', 'Dice Hold System', 'Turn Management', '13 Score Categories', 'Dual Game Modes'],
+      demoUrl: 'https://yacht-dice-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/yacht-dice-game',
+      status: 'Active'
+    },
+    {
+      id: 7,
       title: '수학 성취도 예측 모델',
       description: '머신러닝을 활용하여 학생들의 수학 성취도를 예측하는 웹 서비스',
       category: ['data', 'education'],
@@ -233,7 +284,7 @@ const Projects = () => {
                       className="flex-1 flex items-center justify-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
                     >
                       <Play className="w-4 h-4" />
-                      <span>Go to Web-App</span>
+                      <span>Visit Web App</span>
                     </a>
                     <a
                       href={project.githubUrl}
@@ -310,7 +361,7 @@ const Projects = () => {
                         className="flex-1 flex items-center justify-center space-x-1 bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm"
                       >
                         <Play className="w-3 h-3" />
-                        <span>Demo</span>
+                        <span>Visit Web App</span>
                       </a>
                       <a
                         href={project.githubUrl}
