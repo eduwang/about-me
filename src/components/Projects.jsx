@@ -23,95 +23,72 @@ const Projects = () => {
     { id: 'aiintegrated', name: 'AI Integrated' }
   ]
 
-  // MathJax 초기화 (v3)
+  // MathJax 초기화 - CDN에서 로드된 MathJax 확인
   useEffect(() => {
-    const initMathJax = async () => {
-      if (!window.MathJax) {
-        try {
-          // MathJax v3를 동적으로 로드
-          await import('mathjax/es5/tex-svg.js')
-          
-          // MathJax v3 설정
-          window.MathJax = {
-            tex: {
-              inlineMath: [['$', '$'], ['\\(', '\\)']],
-              displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            },
-            svg: {
-              fontCache: 'global'
-            }
-          }
-          
-          setMathJaxReady(true)
-        } catch (err) {
-          console.error('MathJax initialization error:', err)
-          // Fallback: CDN 방식 시도
-          const script = document.createElement('script')
-          script.src = 'https://polyfill.io/v3/polyfill.min.js?features=es6'
-          script.onload = () => {
-            const mathjaxScript = document.createElement('script')
-            mathjaxScript.id = 'MathJax-script'
-            mathjaxScript.async = true
-            mathjaxScript.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'
-            mathjaxScript.onload = () => {
-              window.MathJax = {
-                tex: {
-                  inlineMath: [['$', '$'], ['\\(', '\\)']],
-                  displayMath: [['$$', '$$'], ['\\[', '\\]']]
-                },
-                svg: {
-                  fontCache: 'global'
-                }
-              }
-              setMathJaxReady(true)
-            }
-            document.head.appendChild(mathjaxScript)
-          }
-          document.head.appendChild(script)
-        }
-      } else {
+    let timeoutId
+    let retryCount = 0
+    const maxRetries = 50 // 최대 5초 대기 (100ms * 50)
+
+    const checkMathJax = () => {
+      if (window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
         setMathJaxReady(true)
+      } else if (retryCount < maxRetries) {
+        retryCount++
+        timeoutId = setTimeout(checkMathJax, 100)
+      } else {
+        console.warn('MathJax failed to load after maximum retries')
       }
     }
     
-    initMathJax()
+    // MathJax 스크립트가 로드될 때까지 대기
+    if (document.getElementById('MathJax-script')) {
+      checkMathJax()
+    } else {
+      // 스크립트가 아직 head에 추가되지 않았다면 잠시 대기
+      timeoutId = setTimeout(checkMathJax, 100)
+    }
+    
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId)
+    }
   }, [])
 
-  // MathJax typeset 업데이트 (v3)
+  // MathJax typeset 업데이트
   useEffect(() => {
-    if (mathJaxReady && window.MathJax && window.MathJax.typesetPromise) {
+    if (mathJaxReady && window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
       const timer = setTimeout(() => {
-        if (window.MathJax.typesetPromise) {
-          window.MathJax.typesetPromise().catch((err) => {
+        try {
+          // Projects 섹션 내의 모든 요소를 타입셋
+          const projectsSection = document.getElementById('projects')
+          if (projectsSection) {
+            window.MathJax.typesetPromise([projectsSection]).catch((err) => {
+              // 오류를 조용히 처리 (수식이 없는 경우도 있으므로)
+              if (err.message && !err.message.includes('No element')) {
+                console.log('MathJax typeset error:', err)
+              }
+            })
+          } else {
+            window.MathJax.typesetPromise().catch((err) => {
+              if (err.message && !err.message.includes('No element')) {
+                console.log('MathJax typeset error:', err)
+              }
+            })
+          }
+        } catch (err) {
+          // 무시 가능한 오류는 조용히 처리
+          if (err.message && !err.message.includes('storage')) {
             console.log('MathJax typeset error:', err)
-          })
-        } else if (window.MathJax.typeset) {
-          // MathJax v3 fallback
-          window.MathJax.typeset()
+          }
         }
-      }, 100)
+      }, 300)
       return () => clearTimeout(timer)
     }
   }, [mathJaxReady, inView, expanded, activeCategory])
 
   // MathJax로 수식을 렌더링하는 함수
   const renderFeatureWithMath = (text) => {
-    // $...$ 형식의 수식을 찾아서 처리
-    const parts = text.split(/(\$[^$]+\$)/g)
-    return parts.map((part, idx) => {
-      if (part.startsWith('$') && part.endsWith('$')) {
-        // MathJax 수식 부분 - \(...\) 형식으로 변환
-        const mathContent = part.slice(1, -1)
-        return (
-          <span key={idx} className="inline-block">
-            <span dangerouslySetInnerHTML={{ 
-              __html: `\\(${mathContent}\\)` 
-            }} />
-          </span>
-        )
-      }
-      return <span key={idx}>{part}</span>
-    })
+    // MathJax가 자동으로 $...$ 형식의 수식을 인식하도록 그대로 반환
+    return text
   }
 
   const projects = [
@@ -160,7 +137,7 @@ const Projects = () => {
       status: 'Active'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Reinforcement Learning Sample for AI Integrated Education',
       description: 'Sample of reinforcement learning. You can try Cart Pole, Lunar Lander, and Maze Solver.',
       category: ['educational', 'aiintegrated'],
@@ -177,7 +154,77 @@ const Projects = () => {
       status: 'Active'
     },
     {
-      id: 4,
+      id: 5,
+      title: 'Exploring Ideas for Using ChatGPT API',
+      description: 'Sample of reinforcement learning. You can try Cart Pole, Lunar Lander, and Maze Solver.',
+      category: ['educational', 'aiintegrated', 'llm'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Handsontable', 'OpenAI API'],
+      features: [
+        'Real-time Interactive AI Chatbot',
+        'Rubric-based Text Feedback System (Logical Flow Evaluation)',
+        'PDF File Upload and Automatic Summarization',
+        'Text/PDF-based Automatic Quiz Generation',
+        'Table Data Input and AI Analysis',
+        'Individual API Settings per Feature (Model, Prompt, Temperature, etc.)'
+      ],
+      demoUrl: 'https://how-to-use-gpt-api-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/ew-how-to-use-gpt-api',
+      status: 'Active'
+    },
+    {
+      id: 6,
+      title: 'Perplexity & YouTube Data API Integration Examples',
+      description: 'Educational web application demonstrating Perplexity API and YouTube Data API usage. Compare AI search results and analyze YouTube channel data with interactive features.',
+      category: ['educational', 'aiintegrated', 'llm'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Chart.js', 'Perplexity API', 'OpenAI API', 'YouTube Data API'],
+      features: [
+        'Real-time Perplexity API vs GPT API Performance Comparison',
+        'Side-by-side Search Result Display for Trend Analysis',
+        'YouTube Keyword-based Popular Video Search with Thumbnails',
+        'Multi-Channel Data Comparison (Subscribers, Views, Upload Count)',
+        'Channel Upload Pattern Analysis with Day/Time Visualization',
+      ],
+      demoUrl: 'https://perplexity-youtube-api-samp-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/perplexity-youtube-api-sample',
+      status: 'Active'
+    },
+    {
+      id: 7,
+      title: 'Web Application with Google Form Integration Examples',
+      description: 'A modern web application demonstrating Google Form integration with OpenAI ChatGPT API. Features include form data submission, real-time AI chatbot conversations, and seamless data collection workflows.',
+      category: ['educational', 'aiintegrated', 'llm'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'OpenAI API'],
+      features: [
+        'Google Form Integration and Data Submission',
+        'Real-time Interactive AI Chatbot with OpenAI ChatGPT API',
+        'User Information Collection (Name, Student ID, Grade, Coding Experience)',
+        'Chatbot Conversation History Recording and Submission',
+        'Google Sheets Integration for Response Viewing',
+      ],
+      demoUrl: 'https://webapp-with-googleform-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/ew-webapp-with-googleform',
+      status: 'Active'
+    },
+    {
+      id: 8,
+      title: 'Calculus Visualization - 3D Interactive Learning Tool',
+      description: 'A web application that visualizes fundamental calculus concepts including Cavalieri\'s principle and Archimedes\' equilibrium method through interactive 3D graphics to enhance mathematical understanding',
+      category: ['educational', '3dvis'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Three.js', 'lil-gui'],
+      features: [
+        'Cavalieri\'s method of indivisibles visualization',
+        'Sphere volume calculation using Cavalieri\'s principle',
+        'Archimedes\' equilibrium method demonstration',
+        'Interactive 3D controls and camera manipulation',
+        'Animation controls with frame-by-frame playback',
+        'Mathematical formula rendering with MathJax'
+      ],
+      demoUrl: 'https://calculus-sgj-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/calculus-sgj',
+      status: 'Active'
+    },
+    {
+      id: 9,
       title: 'Cryptology Learning Platform',
       description: 'An interactive web application for learning classical and modern cryptography through hands-on experience with 8 different cipher implementations',
       category: ['educational'],
@@ -199,25 +246,7 @@ const Projects = () => {
       status: 'Active'
     },
     {
-      id: 5,
-      title: 'Calculus Visualization - 3D Interactive Learning Tool',
-      description: 'A web application that visualizes fundamental calculus concepts including Cavalieri\'s principle and Archimedes\' equilibrium method through interactive 3D graphics to enhance mathematical understanding',
-      category: ['educational', '3dvis'],
-      technologies: ['Vite', 'Vanilla JavaScript', 'Three.js', 'lil-gui'],
-      features: [
-        'Cavalieri\'s method of indivisibles visualization',
-        'Sphere volume calculation using Cavalieri\'s principle',
-        'Archimedes\' equilibrium method demonstration',
-        'Interactive 3D controls and camera manipulation',
-        'Animation controls with frame-by-frame playback',
-        'Mathematical formula rendering with MathJax'
-      ],
-      demoUrl: 'https://calculus-sgj-ew.netlify.app/',
-      githubUrl: 'https://github.com/eduwang/calculus-sgj',
-      status: 'Active'
-    },
-    {
-      id: 6,
+      id: 12,
       title: 'Yacht Dice Game',
       description: 'An interactive dice game featuring real-time 3D physics simulation. Play the classic Yacht (Yahtzee) game with immersive 3D dice rolling powered by Three.js and Cannon.js physics engine.',
       category: ['educational', '3dvis'],

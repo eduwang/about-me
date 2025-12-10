@@ -422,10 +422,8 @@ const Research = () => {
               >
                 <div className="flex items-center justify-start mb-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    project.status === 'Ongoing' 
+                    project.status === '진행중' 
                       ? 'bg-green-100 text-green-800' 
-                      : project.status === 'Finished'
-                      ? 'bg-red-100 text-red-800'
                       : 'bg-blue-100 text-blue-800'
                   }`}>
                     {project.status}

@@ -6,6 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="About Hyowon Wang" />
     <title>About Hyowon Wang</title>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+          ignoreHtmlClass: 'ignore-math',
+          processHtmlClass: 'math-content',
+          menuOptions: {
+            settings: {
+              assistiveMML: false,
+              collapsible: false
+            }
+          }
+        },
+        loader: {
+          load: ['input/tex', 'output/svg']
+        },
+        startup: {
+          ready: () => {
+            if (window.MathJax && window.MathJax.startup && window.MathJax.startup.defaultReady) {
+              window.MathJax.startup.defaultReady();
+              window.MathJaxReady = true;
+            }
+          }
+        }
+      };
+      
+      // Storage 오류 방지를 위한 try-catch
+      try {
+        if (typeof Storage !== 'undefined') {
+          // Storage 사용 가능
+        }
+      } catch (e) {
+        // Storage 오류 무시
+      }
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
   </head>
   <body>
     <div id="root"></div>
