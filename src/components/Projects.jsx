@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Github, Play, ChevronDown, ChevronUp } from 'lucide-react'
@@ -11,6 +11,7 @@ const Projects = () => {
 
   const [activeCategory, setActiveCategory] = useState('all')
   const [expanded, setExpanded] = useState(false)
+  const [mathJaxReady, setMathJaxReady] = useState(false)
 
   const categories = [
     { id: 'all', name: 'All' },
@@ -22,10 +23,101 @@ const Projects = () => {
     { id: 'aiintegrated', name: 'AI Integrated' }
   ]
 
+  // MathJax 초기화 (v3)
+  useEffect(() => {
+    const initMathJax = async () => {
+      if (!window.MathJax) {
+        try {
+          // MathJax v3를 동적으로 로드
+          await import('mathjax/es5/tex-svg.js')
+          
+          // MathJax v3 설정
+          window.MathJax = {
+            tex: {
+              inlineMath: [['$', '$'], ['\\(', '\\)']],
+              displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+              fontCache: 'global'
+            }
+          }
+          
+          setMathJaxReady(true)
+        } catch (err) {
+          console.error('MathJax initialization error:', err)
+          // Fallback: CDN 방식 시도
+          const script = document.createElement('script')
+          script.src = 'https://polyfill.io/v3/polyfill.min.js?features=es6'
+          script.onload = () => {
+            const mathjaxScript = document.createElement('script')
+            mathjaxScript.id = 'MathJax-script'
+            mathjaxScript.async = true
+            mathjaxScript.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'
+            mathjaxScript.onload = () => {
+              window.MathJax = {
+                tex: {
+                  inlineMath: [['$', '$'], ['\\(', '\\)']],
+                  displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                },
+                svg: {
+                  fontCache: 'global'
+                }
+              }
+              setMathJaxReady(true)
+            }
+            document.head.appendChild(mathjaxScript)
+          }
+          document.head.appendChild(script)
+        }
+      } else {
+        setMathJaxReady(true)
+      }
+    }
+    
+    initMathJax()
+  }, [])
+
+  // MathJax typeset 업데이트 (v3)
+  useEffect(() => {
+    if (mathJaxReady && window.MathJax && window.MathJax.typesetPromise) {
+      const timer = setTimeout(() => {
+        if (window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise().catch((err) => {
+            console.log('MathJax typeset error:', err)
+          })
+        } else if (window.MathJax.typeset) {
+          // MathJax v3 fallback
+          window.MathJax.typeset()
+        }
+      }, 100)
+      return () => clearTimeout(timer)
+    }
+  }, [mathJaxReady, inView, expanded, activeCategory])
+
+  // MathJax로 수식을 렌더링하는 함수
+  const renderFeatureWithMath = (text) => {
+    // $...$ 형식의 수식을 찾아서 처리
+    const parts = text.split(/(\$[^$]+\$)/g)
+    return parts.map((part, idx) => {
+      if (part.startsWith('$') && part.endsWith('$')) {
+        // MathJax 수식 부분 - \(...\) 형식으로 변환
+        const mathContent = part.slice(1, -1)
+        return (
+          <span key={idx} className="inline-block">
+            <span dangerouslySetInnerHTML={{ 
+              __html: `\\(${mathContent}\\)` 
+            }} />
+          </span>
+        )
+      }
+      return <span key={idx}>{part}</span>
+    })
+  }
+
   const projects = [
     {
       id: 1,
-      title: 'Exploring the Volume of Sphere',
+      title: 'Exploring the Volume of Sphere through AR',
       description: 'How can we calculate the volume of a sphere? A web-based set of interactive experiments that use 3D rendering, physics, and AR image tracking to build intuition for sphere volume through filling and splitting visualizations.',
       category: ['educational', 'augmentedreality', '3dvis'],
       technologies: [
@@ -48,7 +140,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Visualizing Translations of Quadratic Functions in AR",
+      title: "Visualizing Translations of Quadratic Functions through AR",
       description: "A WebXR-style demo that overlays a quadratic function graph on live camera video, letting users tweak coefficients and observe vertical shifts in real time with Three.js rendering.",
       category: ['educational', 'augmentedreality'],
       technologies: [
@@ -57,7 +149,7 @@ const Projects = () => {
         "WebXR-style camera overlay"
       ],      
       features: [
-        "Render y = ax^2 + bx + c or vertex form graphs over live camera feed",
+        "Render $y = ax^2 + bx + c$ or vertex form graphs over live camera feed",
         "Real-time updates as users adjust coefficients and vertical shift slider",
         "Toggleable dashed grid and axes for clearer visualization",
         "Touch drag to move the camera view and reset to defaults with one tap",
@@ -133,17 +225,6 @@ const Projects = () => {
       features: ['3D Physics Simulation', 'Multiplayer Support', 'Real-time Score Calculation', 'Dice Hold System', 'Turn Management', '13 Score Categories', 'Dual Game Modes'],
       demoUrl: 'https://yacht-dice-ew.netlify.app/',
       githubUrl: 'https://github.com/eduwang/yacht-dice-game',
-      status: 'Active'
-    },
-    {
-      id: 7,
-      title: '수학 성취도 예측 모델',
-      description: '머신러닝을 활용하여 학생들의 수학 성취도를 예측하는 웹 서비스',
-      category: ['data', 'education'],
-      technologies: ['React', 'Python', 'Scikit-learn', 'Flask'],
-      features: ['성취도 예측', '학습 전략 제안', '개입 시점 알림', '성과 분석'],
-      demoUrl: 'https://math-prediction.demo',
-      githubUrl: 'https://github.com/username/math-prediction',
       status: 'Active'
     }
   ]
@@ -264,12 +345,12 @@ const Projects = () => {
 
                   {/* Features */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">주요 기능:</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Features:</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {project.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
                           <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <span className="text-sm text-gray-600">{feature}</span>
+                          <span className="text-sm text-gray-600">{renderFeatureWithMath(feature)}</span>
                         </div>
                       ))}
                     </div>
