@@ -235,21 +235,21 @@ const Research = () => {
       funding: '서울시교육청',
       period: '2025.04-2025.11.',
       role: '공동연구원',
-      status: 'Ongoing'
-    },
-    {
-      title: '디지털 기반 학생 맞춤교육 연구학교 운영',
-      funding: '서울시교육청',
-      period: '2025',
-      role: '공동연구원',
       status: 'Finished'
     },
     {
-      title: '난산증 실태 조사',
-      funding: '공주교육대학교',
+      title: '디지털 기반 학생 맞춤교육 연구학교 운영 백서 발간 연구',
+      funding: '서울시교육청',
       period: '2025',
-      role: '공동연구원',
-      status: 'Ongoing'
+      role: '공동연구원(신목중학교 담당 연구팀)',
+      status: 'Finished'
+    },
+    {
+      title: '2025년 충청남도교육청기초학력지원센터 운영',
+      funding: '충청남도교육청교육과정평가원',
+      period: '2025',
+      role: '공동연구원(난산 실태 연구)',
+      status: 'Finished'
     },
   ]
 

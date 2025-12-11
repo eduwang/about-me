@@ -23,7 +23,8 @@ const Education = () => {
       school: 'Seoul National University',
       period: '2017 Mar. - 2019 Feb.',
       description: 'Evaluation of Item-level Model Fit in Cognitive Diagnosis Assesment',
-      thesisUrl: 'https://hdl.handle.net/10371/151202' // Add thesis URL here
+      thesisUrl: 'https://hdl.handle.net/10371/151202', // Add thesis URL here
+      Advisor: 'Prof. Yunjoo Yoo' // Add thesis URL here
     },
     {
       degree: 'Bachelor of Science in Mathematics Education',

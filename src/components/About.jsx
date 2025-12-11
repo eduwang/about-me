@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { User, Target, Heart, Lightbulb } from 'lucide-react'
+import { User, Target, Heart, Lightbulb, Calculator, Laptop, Database, Code, Brain } from 'lucide-react'
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -10,11 +10,31 @@ const About = () => {
   })
 
   const skills = [
-    { name: 'Mathematics Education', level: 95, color: 'from-blue-500 to-blue-600' },
-    { name: 'Educational Technology', level: 90, color: 'from-purple-500 to-purple-600' },
-    { name: 'Data Science Education', level: 85, color: 'from-green-500 to-green-600' },
-    { name: 'Web-Application Development for Teachers', level: 80, color: 'from-orange-500 to-orange-600' },
-    { name: 'AI Integrated Education', level: 75, color: 'from-red-500 to-red-600' }
+    { 
+      name: 'Mathematics Education', 
+      icon: <Calculator className="w-8 h-8" />,
+      color: 'bg-blue-100 text-blue-600'
+    },
+    { 
+      name: 'Educational Technology', 
+      icon: <Laptop className="w-8 h-8" />,
+      color: 'bg-purple-100 text-purple-600'
+    },
+    { 
+      name: 'Data Science Education', 
+      icon: <Database className="w-8 h-8" />,
+      color: 'bg-green-100 text-green-600'
+    },
+    { 
+      name: 'Web-Application Development for Teachers', 
+      icon: <Code className="w-8 h-8" />,
+      color: 'bg-orange-100 text-orange-600'
+    },
+    { 
+      name: 'AI Integrated Education', 
+      icon: <Brain className="w-8 h-8" />,
+      color: 'bg-red-100 text-red-600'
+    }
   ]
 
   const values = [
@@ -90,31 +110,27 @@ const About = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-6"
           >
             <h3 className="text-2xl font-semibold text-gray-900 mb-6">Professional Skills</h3>
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, x: 50 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
-                className="space-y-2"
-              >
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">{skill.name}</span>
-                  <span className="text-gray-500 text-sm">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <motion.div
-                    className={`h-2 bg-gradient-to-r ${skill.color} rounded-full`}
-                    initial={{ width: 0 }}
-                    animate={inView ? { width: `${skill.level}%` } : {}}
-                    transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
-                  />
-                </div>
-              </motion.div>
-            ))}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                  className="flex flex-col items-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+                  whileHover={{ y: -5, scale: 1.05 }}
+                >
+                  <div className={`w-16 h-16 ${skill.color} rounded-lg flex items-center justify-center mb-3`}>
+                    {skill.icon}
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 text-center leading-tight">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
 
