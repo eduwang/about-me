@@ -246,6 +246,44 @@ const Projects = () => {
       status: 'Active'
     },
     {
+      id: 10,
+      title: 'STEAM Chart Network (2024 Siheung Data Science Project Result)',
+      description: 'An interactive web-based research report analyzing STEAM bestseller game trends from 2019-2023 through network graph visualization, featuring comprehensive data analysis, research findings, and interactive visualizations of user-defined tags and game relationships',
+      category: ['educational', 'data','aiintegrated'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Sigma.js', 'Graphology', 'PapaParse',],      
+      features: [
+        'Interactive web-based research report format',
+        'Comprehensive research methodology and findings presentation',
+        'Interactive network graph visualization for tag relationships',
+        'Game relationship network based on Jaccard similarity',
+        'Degree centrality calculation and visualization',
+        'Community detection using Louvain algorithm',
+        'Research results and trend analysis sections',
+        'Real-time graph updates on filter changes',
+      ],
+      demoUrl: 'https://steam-chart-network.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/steam-chart-network',
+      status: 'Active'
+    },
+    {
+      id: 11,
+      title: 'Naver Webtoon Thumbnail Image - Emotion Network (2025 Siheung Data Science Project Result)',
+      description: "An interactive web-based research report analyzing the relationship between Naver's webtoon thumbnail colors and emotional responses. Features comprehensive data analysis, research findings, and interactive network graph visualizations of webtoon tag relationships and emotion-based connections using Jaccard similarity and community detection algorithms.",
+      category: ['educational', 'data','aiintegrated'],
+      technologies: ["React", "Vite", "Sigma.js", "Graphology"],
+      features: [
+        "Interactive research report with comprehensive data analysis",
+        "Dual network visualization (tag-based and emotion-based webtoon networks)",
+        "Research findings and methodology documentation",
+        "Interactive graph exploration with hover effects and tooltips",
+        "Community detection using Louvain algorithm with color-coded clusters",
+        "Real-time cluster analysis and visualization"
+      ],
+      demoUrl: 'https://sh-naver-webtoon-network.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/naver-webtoon-image-emotion-tag-network',
+      status: 'Active'
+    },
+    {
       id: 12,
       title: 'Yacht Dice Game',
       description: 'An interactive dice game featuring real-time 3D physics simulation. Play the classic Yacht (Yahtzee) game with immersive 3D dice rolling powered by Three.js and Cannon.js physics engine.',
@@ -254,6 +292,23 @@ const Projects = () => {
       features: ['3D Physics Simulation', 'Multiplayer Support', 'Real-time Score Calculation', 'Dice Hold System', 'Turn Management', '13 Score Categories', 'Dual Game Modes'],
       demoUrl: 'https://yacht-dice-ew.netlify.app/',
       githubUrl: 'https://github.com/eduwang/yacht-dice-game',
+      status: 'Active'
+    },
+    {
+      id: 13,
+      title: 'Polyhedra Explorer: 8-Faced Triangular Polyhedra',
+      description: 'An interactive 3D educational visualization exploring the two distinct polyhedra that can be constructed from 8 equilateral triangles. Features immersive 3D models of the Octahedron and Boat Polyhedron (Tritetrahedron) with animated net folding/unfolding sequences, interactive camera controls, and side-by-side comparison views.',
+      category: ['educational', '3dvis'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Three.js'],
+      features: [
+        'Interactive 3D Model Viewing',
+        'Animated Net Folding/Unfolding',
+        'Interactive Animation Slider Control',
+        'Side-by-Side Polyhedra Comparison',
+        'GLTF 3D Model Loading'
+      ],
+      demoUrl: 'https://how-many-8-hedra-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/ew-octa-boat-hedron',
       status: 'Active'
     }
   ]
