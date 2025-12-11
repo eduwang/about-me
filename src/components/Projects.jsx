@@ -432,8 +432,8 @@ const Projects = () => {
                     <h4 className="text-sm font-semibold text-gray-700 mb-2">Features:</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {project.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <div key={idx} className="flex items-start space-x-2">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0 mt-1.5"></div>
                           <span className="text-sm text-gray-600">{renderFeatureWithMath(feature)}</span>
                         </div>
                       ))}
