@@ -137,6 +137,33 @@ const Projects = () => {
       status: 'Active'
     },
     {
+      id: 3,
+      title: "SNA Visualization Tool V2",
+      description: "A web-based platform for visualizing and analyzing social network data with interactive 2D/3D network graphs, community detection using Louvain algorithm, and centrality calculations. Features Firebase authentication for data persistence and report generation capabilities.",
+      category: ['educational', 'data', '3dvis','aiintegrated'],
+      technologies: [
+        "Vite",
+        "Vanilla JavaScript",
+        "Sigma.js",
+        "3d-force-graph",
+        "Graphology",
+        "Firebase",
+      ],
+      features: [
+        "Interactive 2D and 3D network graph visualization with node dragging and zoom controls",
+        "CSV file upload and spreadsheet-style data input interface",
+        "Automatic community detection using Louvain algorithm with adjustable resolution",
+        "Centrality calculations (Degree and Eigenvector) with top 10 node rankings",
+        "Google authentication for secure data storage and retrieval via Firebase",
+        "Report generation with embedded graph images and analysis results",
+        "PNG export functionality for network graphs",
+        "Sample datasets included for quick testing and exploration"
+      ],
+      demoUrl: 'https://sna-vis-tool-v2.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/ew-sna-vis-tool-v2',
+      status: 'Active'
+    },
+    {
       id: 4,
       title: 'Reinforcement Learning Sample for AI Integrated Education',
       description: 'Sample of reinforcement learning. You can try Cart Pole, Lunar Lander, and Maze Solver.',
