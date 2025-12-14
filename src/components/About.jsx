@@ -67,7 +67,7 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          As a mathematics education researcher, I am interested in data science education in school mathematics and technology-enhanced learning environments.          </p>
+          As a mathematics education researcher, I am interested in technology-enhanced learning environments and data science education in school mathematics.          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
@@ -100,7 +100,7 @@ const About = () => {
               directly in classroom settings. My work aims to create learning experiences 
               that help students visually explore mathematical concepts and engage in interactive 
               practice.
-              In addition, I am exploring effective ways to integrate data science education into school mathematics to enrich students’ problem-solving and analytical thinking.
+              In addition, I am exploring effective ways to integrate data science education into school mathematics to enrich students' problem-solving and analytical thinking.
               </p>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Mail, Github } from 'lucide-react'
+import { trackExternalLink } from '../utils/analytics.js'
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -31,6 +32,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full md:w-auto md:flex-1 max-w-md"
             whileHover={{ y: -5 }}
+            onClick={() => trackExternalLink('mailto:eduwang1010.dev@gmail.com', 'Email')}
           >
             <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
               <Mail className="w-7 h-7 text-blue-600" />
@@ -53,6 +55,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 w-full md:w-auto md:flex-1 max-w-md"
             whileHover={{ y: -5 }}
+            onClick={() => trackExternalLink('https://github.com/eduwang', 'GitHub')}
           >
             <div className="w-14 h-14 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
               <Github className="w-7 h-7 text-white" />

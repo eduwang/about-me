@@ -16,15 +16,15 @@ const Education = () => {
       period: '2019 Mar. - 2025 Feb.',
       description: 'Development of Design Principles for Embodied Cognition-Based Augmented Reality Mathematics Learning Environments: Focusing on Augmented Paper Technology',
       thesisUrl: 'https://hdl.handle.net/10371/222294',
-      Advisor: 'Prof. Yunjoo Yoo' // Add thesis URL here
+      Advisor: 'Prof. Yunjoo Yoo'
     },
     {
       degree: 'Master of Science in Mathematics Education',
       school: 'Seoul National University',
       period: '2017 Mar. - 2019 Feb.',
       description: 'Evaluation of Item-level Model Fit in Cognitive Diagnosis Assesment',
-      thesisUrl: 'https://hdl.handle.net/10371/151202', // Add thesis URL here
-      Advisor: 'Prof. Yunjoo Yoo' // Add thesis URL here
+      thesisUrl: 'https://hdl.handle.net/10371/151202',
+      Advisor: 'Prof. Yunjoo Yoo'
     },
     {
       degree: 'Bachelor of Science in Mathematics Education',

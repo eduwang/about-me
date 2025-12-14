@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Github, Play, ChevronDown, ChevronUp } from 'lucide-react'
+import { trackEvent, trackProjectLink } from '../utils/analytics.js'
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -379,7 +380,10 @@ const Projects = () => {
             {categories.map((category) => (
               <button
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => {
+                  setActiveCategory(category.id)
+                  trackEvent('category_filter', { category: category.name })
+                }}
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   activeCategory === category.id
                     ? 'bg-blue-600 text-white shadow-lg'
@@ -395,7 +399,10 @@ const Projects = () => {
         {/* Expand/Collapse Button */}
         <div className="flex justify-center mb-6">
           <button
-            onClick={() => setExpanded(!expanded)}
+            onClick={() => {
+              setExpanded(!expanded)
+              trackEvent('projects_view_toggle', { view: expanded ? 'compact' : 'expanded' })
+            }}
             className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
           >
             <span>{expanded ? 'Show Less' : 'Show All Projects'}</span>
@@ -474,6 +481,7 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300"
+                      onClick={() => trackProjectLink(project.title, 'demo')}
                     >
                       <Play className="w-4 h-4" />
                       <span>Visit Web App</span>
@@ -483,6 +491,7 @@ const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors duration-300"
+                      onClick={() => trackProjectLink(project.title, 'github')}
                     >
                       <Github className="w-4 h-4" />
                       <span>GitHub</span>
@@ -551,6 +560,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex-1 flex items-center justify-center space-x-1 bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm"
+                        onClick={() => trackProjectLink(project.title, 'demo')}
                       >
                         <Play className="w-3 h-3" />
                         <span>Visit Web App</span>
@@ -560,6 +570,7 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center space-x-1 bg-gray-800 text-white px-3 py-2 rounded-lg hover:bg-gray-900 transition-colors duration-300 text-sm"
+                        onClick={() => trackProjectLink(project.title, 'github')}
                       >
                         <Github className="w-3 h-3" />
                         <span>Code</span>

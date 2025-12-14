@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { trackEvent } from '../utils/analytics.js'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -51,6 +52,7 @@ const Header = () => {
                 className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => trackEvent('navigation_click', { section: item.name })}
               >
                 {item.name}
               </motion.a>
@@ -83,7 +85,10 @@ const Header = () => {
                   key={item.name}
                   href={item.href}
                   className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false)
+                    trackEvent('navigation_click', { section: item.name, device: 'mobile' })
+                  }}
                 >
                   {item.name}
                 </a>
