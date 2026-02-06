@@ -21,6 +21,16 @@ const Research = () => {
 
   const publications = [
     {
+      title: 'Designing Tasks for Augmented Paper-Based Mathematics Learning Environments from an Embodied Cognition Perspective',
+      journal: '학습자 주도 수업을 위한 수학 과제의 설계와 실행 - 대한수학교육학회, 한국수학교육학회 연보',
+      year: '2025',
+      category: 'Book Chapter',
+      language: 'KOR',
+      apaCitation: 'Wang, H. (2025). Designing Tasks for Augmented Paper-Based Mathematics Learning Environments from an Embodied Cognition Perspective. In Designing and Implementing Mathematics Tasks for Learner-Centered Instruction - KSESM & KSME Yearbook 2025 (pp. 262-278).',
+      apaCitationKor: '왕효원(2025). 증강된 종이 기반 수학 학습 환경에서의 과제 설계: 체화된 인지 관점을 바탕으로. 학습자 주도 수업을 위한 수학 과제의 설계와 실행 - 대한수학교육학회, 한국수학교육학회 연보(pp. 262-278).',
+      doi: '-'
+    },
+    {
       title: 'Exploring Research Trends in Data Science Education and Its Potential Connection to Elementary School Mathematics: Focusing on the 2022 Revised Curriculum in Korea',
       journal: 'Journal of Elementary Mathematics Education in Korea',
       year: '2025',

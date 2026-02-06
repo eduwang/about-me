@@ -48,3 +48,4 @@ trackProjectLink('Project Name', 'demo') // 또는 'github'
 - `.env` 파일은 `.gitignore`에 포함되어 있으므로 Git에 커밋되지 않습니다.
 - 프로덕션 환경에서는 배포 플랫폼(Netlify 등)의 환경 변수 설정에서 `VITE_GA_MEASUREMENT_ID`를 설정해야 합니다.
 
+
