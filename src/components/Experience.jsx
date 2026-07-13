@@ -46,6 +46,18 @@ const Experience = () => {
     },
     {
       position: 'Lecturer',
+      company: 'Incheon National University',
+      period: 'Mar. 2026 - Present',
+      description: 'Teaching Mathematics Education Course',
+      achievements: [
+        <span key="ai-course">Teaching Models of Mathematics<br />수학교과교육론</span>,
+        <span key="ai-course">Logic and Logical Writing in Mathematics<br />수학 논리 및 논술에 관한 교육</span>,
+        <span key="ai-course">Teaching Materials and Teaching Techniques of Mathematcs<br />수학 교과 교재연구 및 지도법</span>,
+      ],
+      icon: <School className="w-5 h-5" />
+    },
+    {
+      position: 'Lecturer',
       company: 'Korea University',
       period: 'Mar. 2025 - Aug. 2025',
       description: 'Teaching Mathematics Education Course',

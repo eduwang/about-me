@@ -97,7 +97,7 @@ const Projects = () => {
       id: 1,
       title: 'Exploring the Volume of Sphere through AR',
       description: 'How can we calculate the volume of a sphere? A web-based set of interactive experiments that use 3D rendering, physics, and AR image tracking to build intuition for sphere volume through filling and splitting visualizations.',
-      category: ['educational', 'augmentedreality', '3dvis'],
+      category: ['educational', 'ar', '3dvis'],
       technologies: [
         "Vanilla JavaScript",
         "Three.js",
@@ -120,7 +120,7 @@ const Projects = () => {
       id: 2,
       title: "Visualizing Translations of Quadratic Functions through AR",
       description: "A WebXR-style demo that overlays a quadratic function graph on live camera video, letting users tweak coefficients and observe vertical shifts in real time with Three.js rendering.",
-      category: ['educational', 'augmentedreality'],
+      category: ['educational', 'ar'],
       technologies: [
         "Vanilla JavaScript",
         "Three.js",

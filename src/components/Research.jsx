@@ -21,6 +21,18 @@ const Research = () => {
 
   const publications = [
     {
+      title: 'Developing Web Applications for Mathematics Instruction Using Generative AI',
+      journal: '생성형 AI를 활용한 수학 수업용 웹 애플리케이션 개발',
+      year: '2026',
+      category: 'Book',
+      language: 'KOR',
+      apaCitation: 'Wang, H. & Kim, S. (2026). Developing Web Applications for Mathematics Instruction Using Generative AI. GeoBooks.',
+      apaCitationKor: '왕효원, 김승하(2026). 생성형 AI를 활용한 수학 수업용 웹 애플리케이션 개발. 지오북스',
+      // TODO: replace with the actual purchase page URL
+      link: 'https://product.kyobobook.co.kr/detail/S000220110696',
+      linkLabel: 'Link',
+    },
+    {
       title: 'Designing Tasks for Augmented Paper-Based Mathematics Learning Environments from an Embodied Cognition Perspective',
       journal: '학습자 주도 수업을 위한 수학 과제의 설계와 실행 - 대한수학교육학회, 한국수학교육학회 연보',
       year: '2025',
@@ -28,7 +40,6 @@ const Research = () => {
       language: 'KOR',
       apaCitation: 'Wang, H. (2025). Designing Tasks for Augmented Paper-Based Mathematics Learning Environments from an Embodied Cognition Perspective. In Designing and Implementing Mathematics Tasks for Learner-Centered Instruction - KSESM & KSME Yearbook 2025 (pp. 262-278).',
       apaCitationKor: '왕효원(2025). 증강된 종이 기반 수학 학습 환경에서의 과제 설계: 체화된 인지 관점을 바탕으로. 학습자 주도 수업을 위한 수학 과제의 설계와 실행 - 대한수학교육학회, 한국수학교육학회 연보(pp. 262-278).',
-      doi: '-'
     },
     {
       title: 'Exploring Research Trends in Data Science Education and Its Potential Connection to Elementary School Mathematics: Focusing on the 2022 Revised Curriculum in Korea',
@@ -36,8 +47,8 @@ const Research = () => {
       year: '2025',
       category: 'Journal Article',
       language: 'KOR',
-      apaCitation: 'Wang, H. & Tak, B. (2025). Exploring research trends in data science education and its potential connection to elementary school mathematics: focusing on the 2022 revised curriculum in Korea. Journal of elementary mathematics education in Korea, 29(3), 309-335.',
-      apaCitationKor: '왕효원, 탁병주(2025). 데이터 과학 교육의 연구 동향 및 초등학교 수학과의 연계 가능성 탐색: 2022 개정 교육과정을 중심으로. 한국초등수학교육학회지, 29(3), 309-335.',
+      apaCitation: 'Wang, H. & Tak, B. (2025). Exploring research trends in data science education and its potential connection to elementary school mathematics: focusing on the 2022 revised curriculum in Korea. Journal of elementary mathematics education in Korea, 29(3), 309-335. https://doi.org/10.54340/kseme.2025.29.3.6',
+      apaCitationKor: '왕효원, 탁병주(2025). 데이터 과학 교육의 연구 동향 및 초등학교 수학과의 연계 가능성 탐색: 2022 개정 교육과정을 중심으로. 한국초등수학교육학회지, 29(3), 309-335. https://doi.org/10.54340/kseme.2025.29.3.6',
       doi: '10.54340/kseme.2025.29.3.6'
     },
     {
@@ -46,8 +57,8 @@ const Research = () => {
       year: '2025',
       category: 'Journal Article',
       language: 'KOR',
-      apaCitation: 'Wang, H. (2025). Exploring the educational value of data science in school mathematics: focusing on social network analysis. Journal for philosophy of mathematics education, 7(1), 95-109.',
-      apaCitationKor: '왕효원(2025). 학교수학에서 데이터 과학 교육의 가치 탐색: 사회 관계망 분석을 중심으로. 수학교육철학연구, 7(1), 95-109.',
+      apaCitation: 'Wang, H. (2025). Exploring the educational value of data science in school mathematics: focusing on social network analysis. Journal for philosophy of mathematics education, 7(1), 95-109. https://doi.org/10.23027/JPME.2025.7.1.6',
+      apaCitationKor: '왕효원(2025). 학교수학에서 데이터 과학 교육의 가치 탐색: 사회 관계망 분석을 중심으로. 수학교육철학연구, 7(1), 95-109. https://doi.org/10.23027/JPME.2025.7.1.6',
       doi: '10.23027/JPME.2025.7.1.6'
     },
     {
@@ -56,8 +67,8 @@ const Research = () => {
       year: '2025',
       category: 'Journal Article',
       language: 'ENG',
-      apaCitation: 'Wang, H. (2025). Mathematical meaning-making of the volume of a sphere in an augmented paper-based mathematics learning environment from an embodied cognition perspective: A gesture-centered analysis. Journal of educational research in mathematics, 35(3), 667-694.',
-      apaCitationKor: 'Wang, H. (2025). Mathematical meaning-making of the volume of a sphere in an augmented paper-based mathematics learning environment from an embodied cognition perspective: A gesture-centered analysis. 수학교육학연구, 35(3), 667-694.',
+      apaCitation: 'Wang, H. (2025). Mathematical meaning-making of the volume of a sphere in an augmented paper-based mathematics learning environment from an embodied cognition perspective: A gesture-centered analysis. Journal of educational research in mathematics, 35(3), 667-694. https://doi.org/10.29275/jerm.2025.35.3.667',
+      apaCitationKor: 'Wang, H. (2025). Mathematical meaning-making of the volume of a sphere in an augmented paper-based mathematics learning environment from an embodied cognition perspective: A gesture-centered analysis. 수학교육학연구, 35(3), 667-694. https://doi.org/10.29275/jerm.2025.35.3.667',
       doi: '10.29275/jerm.2025.35.3.667'
     },
     {
@@ -66,8 +77,8 @@ const Research = () => {
       year: '2025',
       category: 'Journal Article',
       language: 'KOR',
-      apaCitation: 'Lim, E., Wang, H., Park, J., Koh, J., Lim, C., & Yoo, Y. (2025). Designing a mathematics dashboard for data-driven personalized instruction: Focusing on the cognitive diagnostic assessment platform ‘MathCoDi’. Journal of educational technology, 41(2), 509-546.',
-      apaCitationKor: '임은선, 왕효원, 박주현, 고준보, 임철일, 유연주(2025). 데이터 기반 맞춤형 수업을 위한 수학과 대시보드 설계: 인지진단 평가 플랫폼 ‘MathCoDi’를 중심으로. 교육공학연구, 41(2), 509-546.',
+      apaCitation: 'Lim, E., Wang, H., Park, J., Koh, J., Lim, C., & Yoo, Y. (2025). Designing a mathematics dashboard for data-driven personalized instruction: Focusing on the cognitive diagnostic assessment platform ‘MathCoDi’. Journal of educational technology, 41(2), 509-546. https://doi.org/10.17232/KSET.41.2.509',
+      apaCitationKor: '임은선, 왕효원, 박주현, 고준보, 임철일, 유연주(2025). 데이터 기반 맞춤형 수업을 위한 수학과 대시보드 설계: 인지진단 평가 플랫폼 ‘MathCoDi’를 중심으로. 교육공학연구, 41(2), 509-546. https://doi.org/10.17232/KSET.41.2.509',
       doi: '10.17232/KSET.41.2.509'
     },
     {
@@ -76,8 +87,8 @@ const Research = () => {
       year: '2023',
       category: 'Journal Article',
       language: 'KOR',
-      apaCitation: 'Wang, H. & Kim, J. (2023). Designing augmented reality applications based on artifact centric activity theory: Focusing on translation of quadratic function graphs. Journal for philosophy of mathematics education, 5(2), 155-172.',
-      apaCitationKor: '왕효원, 김지영(2023). 인공물 중심 활동 이론 기반 증강현실 애플리케이션 설계. 수학교육철학연구, 5(2), 155-172.',
+      apaCitation: 'Wang, H. & Kim, J. (2023). Designing augmented reality applications based on artifact centric activity theory: Focusing on translation of quadratic function graphs. Journal for philosophy of mathematics education, 5(2), 155-172. https://doi.org/10.23027/JPME.2023.5.2.3',
+      apaCitationKor: '왕효원, 김지영(2023). 인공물 중심 활동 이론 기반 증강현실 애플리케이션 설계. 수학교육철학연구, 5(2), 155-172. https://doi.org/10.23027/JPME.2023.5.2.3',
       doi: '10.23027/JPME.2023.5.2.3'
     },
   ]
@@ -240,6 +251,22 @@ const Research = () => {
   ]
 
   const projects = [
+    // 2026
+    {
+      title: '2026년 충청남도교육청기초학력지원센터 운영',
+      funding: '충청남도교육청교육과정평가원',
+      period: '2026.03-2026.11.',
+      role: '공동연구원(난산 실태 연구)',
+      status: 'Ongoing'
+    },
+    {
+      title: 'i-세종학당 AI 활용 한국어 학습 모형 고도화 연구',
+      funding: '세종학당재단',
+      period: '2026.05-2026.10.',
+      role: '공동연구원',
+      status: 'Ongoing'
+    },
+    // 2025
     {
       title: '중등 수학·과학 영재 표준 교육과정 개발 연구',
       funding: '서울시교육청',
@@ -364,7 +391,7 @@ const Research = () => {
                     <Globe className="w-4 h-4" />
                     <span>{pub.journal}</span>
                   </span>
-                  {pub.doi && (
+                  {pub.doi && pub.doi !== '-' && (
                     <a 
                       href={pub.doi.startsWith('http') ? pub.doi : `https://doi.org/${pub.doi}`}
                       target="_blank"
@@ -373,6 +400,17 @@ const Research = () => {
                     >
                       <LinkIcon className="w-4 h-4" />
                       <span>DOI: {pub.doi}</span>
+                    </a>
+                  )}
+                  {pub.link && (
+                    <a
+                      href={pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-1 hover:text-blue-600 transition-colors"
+                    >
+                      <LinkIcon className="w-4 h-4" />
+                      <span>{pub.linkLabel || 'Link'}</span>
                     </a>
                   )}
                 </div>
@@ -421,18 +459,25 @@ const Research = () => {
         <div className="mb-20">
           <h3 className="text-2xl font-semibold text-gray-900 text-center mb-12">Research Projects</h3>
           <div className="grid lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project, index) => {
+              const isOngoing = project.status === 'Ongoing' || project.status === '진행중'
+
+              return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
-                className="bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
+                  isOngoing
+                    ? 'bg-gradient-to-br from-green-50 to-emerald-50'
+                    : 'bg-gradient-to-br from-indigo-50 to-purple-50'
+                }`}
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <div className="flex items-center justify-start mb-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    project.status === '진행중' 
+                    isOngoing
                       ? 'bg-green-100 text-green-800' 
                       : 'bg-blue-100 text-blue-800'
                   }`}>
@@ -456,7 +501,8 @@ const Research = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
