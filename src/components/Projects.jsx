@@ -4,6 +4,15 @@ import { useInView } from 'react-intersection-observer'
 import { Github, Play, ChevronDown, ChevronUp } from 'lucide-react'
 import { trackEvent, trackProjectLink } from '../utils/analytics.js'
 
+const shuffle = (items) => {
+  const arr = [...items]
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  return arr
+}
+
 const Projects = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -338,12 +347,32 @@ const Projects = () => {
       demoUrl: 'https://how-many-8-hedra-ew.netlify.app/',
       githubUrl: 'https://github.com/eduwang/ew-octa-boat-hedron',
       status: 'Active'
+    },
+    {
+      id: 14,
+      title: 'Sphinx Puzzle',
+      description: 'An interactive educational Sphinx puzzle built with Three.js for elementary geometry learning. Students can move, rotate, and flip seven triangular pieces on a triangular grid to explore shape composition, with snap/collision helpers, mobile-friendly controls, PNG capture, and teacher presets for classroom use.',
+      category: ['educational'],
+      technologies: ['Vite', 'Vanilla JavaScript', 'Three.js'],
+      features: [
+        'Interactive Sphinx Puzzle Manipulation',
+        'Triangular Grid with Snap Assistance',
+        'Mobile-Friendly Piece Controls',
+        'PNG Capture and Teacher Presets',
+        'Provide teacher-mode and dev-mode'
+      ],
+      demoUrl: 'https://sphinx-puzzle-ew.netlify.app/',
+      githubUrl: 'https://github.com/eduwang/ew-sphinx-puzzle',
+      status: 'Active'
     }
   ]
 
+  // Shuffle once per page visit (component mount)
+  const [orderedProjects] = useState(() => shuffle(projects))
+
   const filteredProjects = activeCategory === 'all' 
-    ? projects 
-    : projects.filter(project => {
+    ? orderedProjects 
+    : orderedProjects.filter(project => {
         // category가 배열인 경우와 문자열인 경우 모두 처리
         const categories = Array.isArray(project.category) 
           ? project.category 
