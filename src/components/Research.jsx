@@ -21,6 +21,16 @@ const Research = () => {
 
   const publications = [
     {
+      title: "The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P",
+      journal: 'Communications of the Korean Mathematical Society',
+      year: '2026',
+      category: 'Journal Article',
+      language: 'ENG',
+      apaCitation: "Kim, J. & Wang, H. (2026). The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P. Communications of the Korean Mathematical Society, 41(3), 1063-1094. https://doi.org/10.4134/CKMS.c250397",
+      apaCitationKor: "Kim, J. & Wang, H. (2026). The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P. Communications of the Korean Mathematical Society, 41(3), 1063-1094. https://doi.org/10.4134/CKMS.c250397",
+      doi: '10.4134/CKMS.c250397'
+    },
+    {
       title: 'Developing Web Applications for Mathematics Instruction Using Generative AI',
       journal: '생성형 AI를 활용한 수학 수업용 웹 애플리케이션 개발',
       year: '2026',
@@ -96,10 +106,10 @@ const Research = () => {
   // APA 형식에 맞게 이름을 볼드, 학술지 이름과 권을 이탤릭 처리하는 함수 (영어용)
   const formatCitationWithBoldName = (citation) => {
     let formatted = citation
-    
+
     // 1. 이름을 볼드 처리
     formatted = formatted.replace(/(Wang, H\.)/g, '<strong>$1</strong>')
-    
+
     // 2. 학술지 이름과 권(Volume)을 이탤릭 처리
     // APA 형식: "제목. Journal Name, Volume(Issue), pages"
     // 제목 뒤의 마지막 점을 정확히 찾기 위해:
@@ -107,17 +117,17 @@ const Research = () => {
     // - 대문자로 시작하는 학술지 이름 앞의 마지막 점을 찾음
     // - 그 점 다음부터 쉼표 전까지가 학술지 이름
     // - 쉼표 뒤 공백 다음 숫자가 권
-    
+
     // 연도 뒤의 점 이후에서, 학술지 이름(대문자로 시작) 앞의 마지막 점 찾기
     const yearMatch = formatted.match(/\((\d{4})\)\./)
     if (yearMatch) {
       const yearIndex = formatted.indexOf(yearMatch[0]) + yearMatch[0].length
       const afterYear = formatted.substring(yearIndex)
-      
+
       // 학술지 이름 패턴: 대문자로 시작하고, 그 뒤에 쉼표와 숫자가 옴
       const journalPattern = /\. ([A-Z][^,]+), (\d+)\(/
       const journalMatch = afterYear.match(journalPattern)
-      
+
       if (journalMatch) {
         // 학술지 이름 앞의 점 위치 찾기
         const journalIndex = afterYear.indexOf(journalMatch[0])
@@ -125,32 +135,32 @@ const Research = () => {
         const journalName = journalMatch[1]
         const volume = journalMatch[2]
         const afterJournal = afterYear.substring(journalIndex + journalMatch[0].length)
-        
+
         // 제목 부분은 그대로, 학술지 이름과 권만 이탤릭 처리
-        formatted = formatted.substring(0, yearIndex) + 
-                    beforeJournal + 
-                    '. <em>' + journalName + '</em>, <em>' + volume + '</em>(' + 
-                    afterJournal
+        formatted = formatted.substring(0, yearIndex) +
+          beforeJournal +
+          '. <em>' + journalName + '</em>, <em>' + volume + '</em>(' +
+          afterJournal
       }
     } else {
       // 연도 패턴이 없으면 기존 방식 사용
       formatted = formatted.replace(/\. ([A-Z][^,]+), (\d+)\(/g, '. <em>$1</em>, <em>$2</em>(')
     }
-    
+
     return formatted
   }
 
   // 한국어 인용 형식에 맞게 이름을 볼드, 학술지 이름과 권을 볼드 처리하는 함수
   const formatCitationKorWithBold = (citation) => {
     let formatted = citation
-    
+
     // 1. 이름을 볼드 처리 (왕효원)
     if (formatted.includes('왕효원')) {
       formatted = formatted.replace(/(왕효원)/g, '<strong>$1</strong>')
     } else {
       formatted = formatted.replace(/(Wang, H\.)/g, '<strong>$1</strong>')
     }
-    
+
     // 2. 학술지 이름과 권(Volume)을 볼드 처리
     // 한국어 인용 형식: "제목. 학술지 이름, 권(호), 페이지."
     // 제목 뒤의 마지막 점을 정확히 찾기 위해:
@@ -158,17 +168,17 @@ const Research = () => {
     // - 학술지 이름 앞의 마지막 점을 찾음
     // - 그 점 다음부터 쉼표 전까지가 학술지 이름
     // - 쉼표 뒤 공백 다음 숫자가 권
-    
+
     // 연도 뒤의 점 이후에서, 학술지 이름 앞의 마지막 점 찾기
     const yearMatch = formatted.match(/\((\d{4})\)\./)
     if (yearMatch) {
       const yearIndex = formatted.indexOf(yearMatch[0]) + yearMatch[0].length
       const afterYear = formatted.substring(yearIndex)
-      
+
       // 학술지 이름 패턴: 한글이나 영문으로 시작하고, 그 뒤에 쉼표와 숫자가 옴
       const journalPattern = /\. ([^,]+), (\d+)\(/
       const journalMatch = afterYear.match(journalPattern)
-      
+
       if (journalMatch) {
         // 학술지 이름 앞의 점 위치 찾기
         const journalIndex = afterYear.indexOf(journalMatch[0])
@@ -176,18 +186,18 @@ const Research = () => {
         const journalName = journalMatch[1]
         const volume = journalMatch[2]
         const afterJournal = afterYear.substring(journalIndex + journalMatch[0].length)
-        
+
         // 제목 부분은 그대로, 학술지 이름과 권만 볼드 처리
-        formatted = formatted.substring(0, yearIndex) + 
-                    beforeJournal + 
-                    '. <strong>' + journalName + '</strong>, <strong>' + volume + '</strong>(' + 
-                    afterJournal
+        formatted = formatted.substring(0, yearIndex) +
+          beforeJournal +
+          '. <strong>' + journalName + '</strong>, <strong>' + volume + '</strong>(' +
+          afterJournal
       }
     } else {
       // 연도 패턴이 없으면 기존 방식 사용
       formatted = formatted.replace(/\. ([^,]+), (\d+)\(/g, '. <strong>$1</strong>, <strong>$2</strong>(')
     }
-    
+
     return formatted
   }
 
@@ -338,9 +348,9 @@ const Research = () => {
                   </div>
                   <span className="text-lg font-bold text-blue-600">{pub.year}</span>
                 </div>
-                
+
                 <h4 className="text-xl font-semibold text-gray-900 mb-3">{pub.title}</h4>
-                
+
                 {/* APA Citation Toggle Button */}
                 {(pub.apaCitation || pub.apaCitationKor) && (
                   <div className="mb-4">
@@ -355,28 +365,28 @@ const Research = () => {
                         <ChevronDown className="w-4 h-4" />
                       )}
                     </button>
-                    
+
                     {expandedCitations[index] && (
                       <div className="mt-2 space-y-3">
                         {/* APA Citation */}
                         {pub.apaCitation && (
                           <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
-                            <p 
+                            <p
                               className="text-sm text-gray-700 leading-relaxed"
-                              dangerouslySetInnerHTML={{ 
-                                __html: formatCitationWithBoldName(pub.apaCitation) 
+                              dangerouslySetInnerHTML={{
+                                __html: formatCitationWithBoldName(pub.apaCitation)
                               }}
                             />
                           </div>
                         )}
-                        
+
                         {/* APA Citation (Korean) */}
                         {pub.apaCitationKor && (
                           <div className="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
-                            <p 
+                            <p
                               className="text-sm text-gray-700 leading-relaxed"
-                              dangerouslySetInnerHTML={{ 
-                                __html: formatCitationKorWithBold(pub.apaCitationKor) 
+                              dangerouslySetInnerHTML={{
+                                __html: formatCitationKorWithBold(pub.apaCitationKor)
                               }}
                             />
                           </div>
@@ -385,14 +395,14 @@ const Research = () => {
                     )}
                   </div>
                 )}
-                
+
                 <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                   <span className="flex items-center space-x-1">
                     <Globe className="w-4 h-4" />
                     <span>{pub.journal}</span>
                   </span>
                   {pub.doi && pub.doi !== '-' && (
-                    <a 
+                    <a
                       href={pub.doi.startsWith('http') ? pub.doi : `https://doi.org/${pub.doi}`}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -440,7 +450,7 @@ const Research = () => {
                     {conf.type}
                   </span>
                 </div>
-                
+
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">{conf.title}</h4>
                 {conf.author && (
                   <p className="text-sm text-gray-600 mb-2">{conf.author}</p>
@@ -463,44 +473,42 @@ const Research = () => {
               const isOngoing = project.status === 'Ongoing' || project.status === '진행중'
 
               return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
-                className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
-                  isOngoing
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 1 + index * 0.2 }}
+                  className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${isOngoing
                     ? 'bg-gradient-to-br from-green-50 to-emerald-50'
                     : 'bg-gradient-to-br from-indigo-50 to-purple-50'
-                }`}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <div className="flex items-center justify-start mb-4">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    isOngoing
-                      ? 'bg-green-100 text-green-800' 
+                    }`}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                >
+                  <div className="flex items-center justify-start mb-4">
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${isOngoing
+                      ? 'bg-green-100 text-green-800'
                       : 'bg-blue-100 text-blue-800'
-                  }`}>
-                    {project.status}
-                  </span>
-                </div>
-                
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">{project.title}</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">연구기관:</span>
-                    <span className="font-medium">{project.funding}</span>
+                      }`}>
+                      {project.status}
+                    </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">연구기간:</span>
-                    <span className="font-medium">{project.period}</span>
+
+                  <h4 className="text-xl font-semibold text-gray-900 mb-3">{project.title}</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">연구기관:</span>
+                      <span className="font-medium">{project.funding}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">연구기간:</span>
+                      <span className="font-medium">{project.period}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">역할:</span>
+                      <span className="font-medium">{project.role}</span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-600">역할:</span>
-                    <span className="font-medium">{project.role}</span>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
               )
             })}
           </div>
