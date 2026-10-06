@@ -21,7 +21,7 @@ const Research = () => {
 
   const publications = [
     {
-      title: "교사 발화 재구성을 위한 TMSSR 프레임워크 기반 Lesson Play AI 피드백 시스템 설계 및 적용",
+      title: "Designing and implementing an AI-based lesson play feedback system grounded in the TMSSR framework for teachers' revision on their teacher utterances",
       journal: 'Journal of Educational Research in Mathematics',
       year: '2026',
       category: 'Journal Article',
