@@ -21,13 +21,23 @@ const Research = () => {
 
   const publications = [
     {
+      title: "교사 발화 재구성을 위한 TMSSR 프레임워크 기반 Lesson Play AI 피드백 시스템 설계 및 적용",
+      journal: 'Journal of Educational Research in Mathematics',
+      year: '2026',
+      category: 'Journal Article',
+      language: 'KOR',
+      apaCitation: "Wang, H., & Kim, Y. (2026). Designing and implementing an AI-based lesson play feedback system grounded in the TMSSR framework for teachers' revision on their teacher utterances. Journal of Educational Research in Mathematics, 36(3), 777-800. https://doi.org/10.29275/jerm.2026.36.3.777",
+      apaCitationKor: "왕효원, 김연(2026). 교사 발화 재구성을 위한 TMSSR 프레임워크 기반 Lesson Play AI 피드백 시스템 설계 및 적용. 수학교육학연구, 36(3), 777-800. https://doi.org/10.29275/jerm.2026.36.3.777",
+      doi: '10.29275/jerm.2026.36.3.777'
+    },
+    {
       title: "The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P",
       journal: 'Communications of the Korean Mathematical Society',
       year: '2026',
       category: 'Journal Article',
       language: 'ENG',
-      apaCitation: "Kim, J. & Wang, H. (2026). The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P. Communications of the Korean Mathematical Society, 41(3), 1063-1094. https://doi.org/10.4134/CKMS.c250397",
-      apaCitationKor: "Kim, J. & Wang, H. (2026). The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P. Communications of the Korean Mathematical Society, 41(3), 1063-1094. https://doi.org/10.4134/CKMS.c250397",
+      apaCitation: "Kim, J., & Wang, H. (2026). The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P. Communications of the Korean Mathematical Society, 41(3), 1063-1094. https://doi.org/10.4134/CKMS.c250397",
+      apaCitationKor: "Kim, J., & Wang, H. (2026). The impact of pre-service mathematics teachers' experience progressing from web application development to lesson design on TPACK-P. Communications of the Korean Mathematical Society, 41(3), 1063-1094. https://doi.org/10.4134/CKMS.c250397",
       doi: '10.4134/CKMS.c250397'
     },
     {
@@ -57,7 +67,7 @@ const Research = () => {
       year: '2025',
       category: 'Journal Article',
       language: 'KOR',
-      apaCitation: 'Wang, H. & Tak, B. (2025). Exploring research trends in data science education and its potential connection to elementary school mathematics: focusing on the 2022 revised curriculum in Korea. Journal of elementary mathematics education in Korea, 29(3), 309-335. https://doi.org/10.54340/kseme.2025.29.3.6',
+      apaCitation: 'Wang, H., & Tak, B. (2025). Exploring research trends in data science education and its potential connection to elementary school mathematics: focusing on the 2022 revised curriculum in Korea. Journal of elementary mathematics education in Korea, 29(3), 309-335. https://doi.org/10.54340/kseme.2025.29.3.6',
       apaCitationKor: '왕효원, 탁병주(2025). 데이터 과학 교육의 연구 동향 및 초등학교 수학과의 연계 가능성 탐색: 2022 개정 교육과정을 중심으로. 한국초등수학교육학회지, 29(3), 309-335. https://doi.org/10.54340/kseme.2025.29.3.6',
       doi: '10.54340/kseme.2025.29.3.6'
     },
@@ -97,7 +107,7 @@ const Research = () => {
       year: '2023',
       category: 'Journal Article',
       language: 'KOR',
-      apaCitation: 'Wang, H. & Kim, J. (2023). Designing augmented reality applications based on artifact centric activity theory: Focusing on translation of quadratic function graphs. Journal for philosophy of mathematics education, 5(2), 155-172. https://doi.org/10.23027/JPME.2023.5.2.3',
+      apaCitation: 'Wang, H., & Kim, J. (2023). Designing augmented reality applications based on artifact centric activity theory: Focusing on translation of quadratic function graphs. Journal for philosophy of mathematics education, 5(2), 155-172. https://doi.org/10.23027/JPME.2023.5.2.3',
       apaCitationKor: '왕효원, 김지영(2023). 인공물 중심 활동 이론 기반 증강현실 애플리케이션 설계. 수학교육철학연구, 5(2), 155-172. https://doi.org/10.23027/JPME.2023.5.2.3',
       doi: '10.23027/JPME.2023.5.2.3'
     },
